@@ -22,7 +22,7 @@ public class TopicoDAOImpl implements TopicoDAO, Serializable {
     }
     
     @Override
-    public void insereTopico(Topico topico) {
+    public void inserir(Topico topico) {
         String sql = "INSERT INTO topico(titulo, conteudo, login) VALUES(?, ?, ?)";
         
         try {

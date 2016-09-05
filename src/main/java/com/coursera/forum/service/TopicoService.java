@@ -20,6 +20,6 @@ public class TopicoService implements Serializable {
     }
     
     public void insereTopico(Topico topico) {
-        this.topicoDAO.insereTopico(topico);
+        this.topicoDAO.inserir(topico);
     }
 }

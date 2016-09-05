@@ -31,8 +31,7 @@ public class TopicoDAOTest {
     @Test
     public void deveInserirTopico() throws Exception {
         Topico topico = this.criaTopico("Título 4", "Conteúdo 4");
-        topico.setId(4);
-        this.dao.insereTopico(topico);
+        this.dao.inserir(topico);
         
         ITable currentTable = this.jdt.getConnection().createDataSet().getTable("topico");
         ITable expectedTable = JDBCDatabaseTesterUtil.getDataset(INSERT_XML_LOCATION).getTable("topico");

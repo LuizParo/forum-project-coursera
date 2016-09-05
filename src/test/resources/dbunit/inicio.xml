@@ -2,7 +2,12 @@
 	<usuario login="joao" nome="Joao Pedro" senha="joaopedro" email="joao@email.com" pontos="10" />
 	<usuario login="maria" nome="Maria Tereza" senha="mariatereza" email="mt@email.com" pontos="20" />
 	
-	<topico titulo="Título 1" conteudo="Conteúdo 1" login="joao" />
-	<topico titulo="Título 2" conteudo="Conteúdo 2" login="maria" />
-	<topico titulo="Título 3" conteudo="Conteúdo 3" login="maria" />
+	<topico titulo="Título 1" conteudo="Conteúdo 1" login="joao" id_topico="1" />
+	<topico titulo="Título 2" conteudo="Conteúdo 2" login="maria" id_topico="2" />
+	<topico titulo="Título 3" conteudo="Conteúdo 3" login="maria" id_topico="3" />
+	
+	<comentario comentario="Comentário 1" login="joao" id_topico="1" />
+	<comentario comentario="Comentário 2" login="joao" id_topico="1" />
+	<comentario comentario="Comentário 3" login="maria" id_topico="1" />
+	<comentario comentario="Comentário 4" login="maria" id_topico="2" />
 </dataset>

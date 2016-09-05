@@ -9,5 +9,5 @@ public interface TopicoDAO {
 
     public List<Topico> recuperaTopicosDoUsuario(Usuario usuario);
 
-    public void insereTopico(Topico topico);
+    public void inserir(Topico topico);
 }
