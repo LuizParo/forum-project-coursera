@@ -1,0 +1,8 @@
+<dataset>
+	<usuario login="joao" nome="Joao Pedro" senha="joaopedro" email="joao@email.com" pontos="10" />
+	<usuario login="maria" nome="Maria Tereza" senha="mariatereza" email="mt@email.com" pontos="20" />
+	
+	<topico titulo="Título 1" conteudo="Conteúdo 1" login="joao" />
+	<topico titulo="Título 2" conteudo="Conteúdo 2" login="maria" />
+	<topico titulo="Título 3" conteudo="Conteúdo 3" login="maria" />
+</dataset>
