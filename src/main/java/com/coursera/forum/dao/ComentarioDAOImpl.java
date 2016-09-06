@@ -67,6 +67,7 @@ public class ComentarioDAOImpl implements ComentarioDAO, Serializable {
                 topicoRecuperado.setUsuario(usuarioRecuperado);
                 
                 Comentario comentario = new Comentario();
+                comentario.setId(rs.getInt("id_comentario"));
                 comentario.setComentario(rs.getString("comentario"));
                 comentario.setUsuario(usuarioRecuperado);
                 comentario.setTopico(topicoRecuperado);

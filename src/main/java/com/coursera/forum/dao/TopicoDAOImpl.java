@@ -69,4 +69,35 @@ public class TopicoDAOImpl implements TopicoDAO, Serializable {
             throw new DataAccessException(e.getMessage(), e);
         }
     }
+
+    @Override
+    public Topico recuperaTopico(int idTopico) {
+        String sql = "SELECT * FROM topico t INNER JOIN usuario u ON t.login = u.login WHERE t.id_topico = ?";
+        Topico topico = null;
+        
+        try {
+            PreparedStatement stmt = this.connection.prepareStatement(sql);
+            stmt.setInt(1, idTopico);
+            
+            ResultSet rs = stmt.executeQuery();
+            if(rs.next()) {
+                Usuario usuarioRecuperado = new Usuario();
+                usuarioRecuperado.setLogin(rs.getString("login"));
+                usuarioRecuperado.setEmail(rs.getString("email"));
+                usuarioRecuperado.setNome(rs.getString("nome"));
+                usuarioRecuperado.setSenha(rs.getString("senha"));
+                usuarioRecuperado.setPontos(rs.getInt("pontos"));
+                
+                topico = new Topico();
+                topico.setId(rs.getInt("id_topico"));
+                topico.setTitulo(rs.getString("titulo"));
+                topico.setConteudo(rs.getString("conteudo"));
+                topico.setUsuario(usuarioRecuperado);
+            }
+            
+            return topico;
+        } catch (SQLException e) {
+            throw new DataAccessException(e.getMessage(), e);
+        }
+    }
 }

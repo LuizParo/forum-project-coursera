@@ -20,15 +20,15 @@ public class InsereComentarioAction implements Action, Serializable {
         ComentarioService service = (ComentarioService) session.getAttribute("comentarioService");
         
         Topico topico = new Topico();
-        topico.setId(Integer.parseInt(request.getParameter("txtIdTopico")));
+        topico.setId(Integer.parseInt(request.getParameter("topico")));
         
         Comentario comentario = new Comentario();
-        comentario.setComentario(request.getParameter("txtConteudo"));
+        comentario.setComentario(request.getParameter("txtComentario"));
         comentario.setUsuario((Usuario) session.getAttribute("usuarioLogado"));
         comentario.setTopico(topico);
         
         service.insereComentario(comentario);
         
-        return "insereTopico";
+        return "redirect:?action=TelaInsereTopicoAction&topico=" + topico.getId() + "&exibicao=true";
     }
 }

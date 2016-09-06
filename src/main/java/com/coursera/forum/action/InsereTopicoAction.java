@@ -17,6 +17,7 @@ public class InsereTopicoAction implements Action, Serializable {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         TopicoService topicoService = (TopicoService) session.getAttribute("topicoService");
+        session.getAttribute("");
         
         Topico topico = new Topico();
         topico.setTitulo(request.getParameter("txtTitulo"));

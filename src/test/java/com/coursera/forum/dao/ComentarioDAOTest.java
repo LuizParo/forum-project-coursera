@@ -46,7 +46,13 @@ public class ComentarioDAOTest {
         Assert.assertNotNull(comentariosRecuperados);
         Assert.assertFalse(comentariosRecuperados.isEmpty());
         Assert.assertEquals(3, comentariosRecuperados.size());
+        
         for (Comentario comentario : comentariosRecuperados) {
+            Assert.assertNotNull(comentario.getId());
+            Assert.assertNotNull(comentario.getComentario());
+            
+            Assert.assertNotNull(comentario.getUsuario());
+            Assert.assertNotNull(comentario.getTopico());
             Assert.assertEquals(new Integer(1), comentario.getTopico().getId());
         }
     }

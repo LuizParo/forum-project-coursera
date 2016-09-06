@@ -20,7 +20,7 @@
 						<label for="txtTitulo">Título:</label>
 					</td>
 					<td>
-						<input type="text" id="txtTitulo" name="txtTitulo" value="${topico.titulo}" <c:if test="${disabledFields != null}">disabled</c:if> />
+						<input type="text" id="txtTitulo" name="txtTitulo" value="${topico.titulo}" <c:if test="${exibicao != null}">disabled</c:if> />
 					</td>
 				</tr>
 				<tr>
@@ -28,9 +28,8 @@
 						<label for="txtConteudo">Conteúdo:</label>
 					</td>
 					<td>
-						<textarea rows="50" cols="50" id="txtConteudo" name="txtConteudo" <c:if test="${disabledFields != null}">disabled</c:if> >
-							${topico.conteudo}
-						</textarea>
+						<textarea rows="50" cols="50" id="txtConteudo" name="txtConteudo"
+								<c:if test="${exibicao != null}">disabled</c:if> >${topico.conteudo}</textarea>
 					</td>
 				</tr>
 				<tr>
@@ -38,7 +37,7 @@
 				</tr>
 			</table>
 			
-			<c:if test="${disabledFields == null}">
+			<c:if test="${exibicao == null}">
 				<div>
 					<input type="submit" value="Inserir" />
 					<input type="reset" value="Limpar" />
@@ -46,15 +45,12 @@
 			</c:if>
 		</form>
 		
-		<c:if test="${disabledFields != null}">
+		<c:if test="${exibicao != null}">
 			<div>
 				<c:forEach items="${comentarios}" var="comentario">
 					<div>
 						<p>${comentario.usuario.nome}</p>
-						<br/>
-						<textarea rows="5" cols="50" disabled="disabled">
-							${comentario.comentario}
-						</textarea>
+						<textarea rows="5" cols="50" disabled="disabled">${comentario.comentario.trim()}</textarea>
 					</div>
 					<br/>
 				</c:forEach>
@@ -62,12 +58,15 @@
 
 			<form action="${action}" method="post" >
 				<input type="hidden" name="action" value="InsereComentarioAction"/>
-				<input type="hidden" name="txtIdTopico" value="${topico.id}" />
+				<input type="hidden" name="topico" value="${topico.id}" />
 				
 				<div>
 					<p>Insira seu comentário:</p>
 					<br/>
 					<textarea rows="5" cols="50" name="txtComentario"></textarea>
+				</div>
+				<div>
+					<input type="submit" value="Inserir Comentário" />
 				</div>
 			</form>
 		</c:if>

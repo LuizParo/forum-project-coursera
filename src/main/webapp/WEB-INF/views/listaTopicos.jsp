@@ -50,7 +50,7 @@
 					<tr>
 						<td class="coluna">${topico.titulo}</td>
 						<td class="coluna">${topico.usuario.nome}</td>
-						<td class="coluna"><a href="${action}?action=TelaInsereTopicoAction&topico=${topico.id}&disabledFields=true">Exibir</a></td>
+						<td class="coluna"><a href="${action}?action=TelaInsereTopicoAction&topico=${topico.id}&exibicao=true">Exibir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

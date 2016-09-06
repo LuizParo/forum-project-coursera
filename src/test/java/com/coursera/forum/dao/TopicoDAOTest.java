@@ -40,6 +40,15 @@ public class TopicoDAOTest {
     }
     
     @Test
+    public void deveRecuperarTopico() {
+        Topico topico = this.dao.recuperaTopico(1);
+        
+        Assert.assertNotNull(topico);
+        Assert.assertNotNull(topico.getId());
+        Assert.assertEquals(Integer.valueOf(1), topico.getId());
+    }
+    
+    @Test
     public void deveRecuperarTopicosDoUsuario() {
         Usuario usuario = new Usuario();
         usuario.setLogin("maria");

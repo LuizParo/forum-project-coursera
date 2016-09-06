@@ -2,7 +2,6 @@ package com.coursera.forum.filter;
 
 import java.io.IOException;
 import java.io.Serializable;
-import java.sql.Connection;
 
 import javax.servlet.Filter;
 import javax.servlet.FilterChain;
@@ -13,13 +12,8 @@ import javax.servlet.ServletResponse;
 import javax.servlet.annotation.WebFilter;
 import javax.servlet.http.HttpSession;
 
-import com.coursera.forum.dao.ComentarioDAO;
-import com.coursera.forum.dao.ComentarioDAOImpl;
-import com.coursera.forum.dao.JDBCConnectionFactory;
-import com.coursera.forum.service.ComentarioService;
-
 @WebFilter(urlPatterns = "/")
-public class ComentarioFilter implements Filter, Serializable {
+public class ControleAcessoFilter implements Filter, Serializable {
     private static final long serialVersionUID = 1L;
 
     @Override
@@ -31,20 +25,21 @@ public class ComentarioFilter implements Filter, Serializable {
     public void doFilter(ServletRequest request, ServletResponse response, FilterChain chain) throws IOException, ServletException {
         HttpSession session = FilterHelper.getSessionFromRequest(request);
         if(session != null) {
-            if(session.getAttribute("comentarioService") == null) {
-                if(session.getAttribute("connection") == null) {
-                    Connection connection = JDBCConnectionFactory.getConnection();
-                    session.setAttribute("connection", connection);
-                }
-                
-                ComentarioDAO dao = new ComentarioDAOImpl((Connection) session.getAttribute("connection"));
-                ComentarioService service = new ComentarioService(dao);
-                
-                session.setAttribute("comentarioService", service);
+            String action = request.getParameter("action");
+            if(session.getAttribute("usuarioLogado") == null && !this.isActionAllowedToContinue(action)) {
+                request.getRequestDispatcher("/WEB-INF/views/login.jsp").forward(request, response);
+                return;
             }
         }
         
         chain.doFilter(request, response);
+    }
+
+    private boolean isActionAllowedToContinue(String action) {
+        return action == null
+                || action.equalsIgnoreCase("TelaCadastroUsuarioAction")
+                || action.equalsIgnoreCase("CadastroUsuarioAction")
+                || action.equalsIgnoreCase("AutenticacaoAction");
     }
 
     @Override

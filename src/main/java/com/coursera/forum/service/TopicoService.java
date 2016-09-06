@@ -14,6 +14,10 @@ public class TopicoService implements Serializable {
     public TopicoService(TopicoDAO topicoDAO) {
         this.topicoDAO = topicoDAO;
     }
+    
+    public Topico recuperaTopico(int idTopico) {
+        return this.topicoDAO.recuperaTopico(idTopico);
+    }
 
     public List<Topico> recuperaTopicosDoUsuario(Usuario usuario) {
         return this.topicoDAO.recuperaTopicosDoUsuario(usuario);
