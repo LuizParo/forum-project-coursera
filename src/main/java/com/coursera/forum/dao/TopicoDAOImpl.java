@@ -38,13 +38,12 @@ public class TopicoDAOImpl implements TopicoDAO, Serializable {
     }
 
     @Override
-    public List<Topico> recuperaTopicosDoUsuario(Usuario usuario) {
-        String sql = "SELECT * FROM topico t INNER JOIN usuario u ON t.login = u.login WHERE u.login = ?";
+    public List<Topico> recuperaTopicos() {
+        String sql = "SELECT * FROM topico t INNER JOIN usuario u ON t.login = u.login";
         List<Topico> topicos = new ArrayList<>();
         
         try {
             PreparedStatement stmt = this.connection.prepareStatement(sql);
-            stmt.setString(1, usuario.getLogin());
             
             ResultSet rs = stmt.executeQuery();
             while(rs.next()) {

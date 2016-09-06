@@ -29,8 +29,9 @@
 		
 		<c:url value="/" var="action" />
 		<div>
-			<br/>
-			<a href="${action}?action=TelaInsereTopicoAction">Criar Tópico</a>
+			<a href="${action}?action=LogoutAction">Logout</a>
+			<br/><br/>
+			<a href="${action}?action=TelaTopicoAction">Criar Tópico</a>
 			<br/><br/>
 			<a href="${action}">Exibir Ranking</a>
 		</div>
@@ -50,7 +51,7 @@
 					<tr>
 						<td class="coluna">${topico.titulo}</td>
 						<td class="coluna">${topico.usuario.nome}</td>
-						<td class="coluna"><a href="${action}?action=TelaInsereTopicoAction&topico=${topico.id}&exibicao=true">Exibir</a></td>
+						<td class="coluna"><a href="${action}?action=TelaTopicoAction&topico=${topico.id}&exibicao=true">Exibir</a></td>
 					</tr>
 				</c:forEach>
 			</tbody>

@@ -8,7 +8,6 @@ import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 
 import com.coursera.forum.model.Topico;
-import com.coursera.forum.model.Usuario;
 import com.coursera.forum.service.TopicoService;
 
 public class TelaListaTopicosAction implements Action, Serializable {
@@ -19,8 +18,7 @@ public class TelaListaTopicosAction implements Action, Serializable {
         HttpSession session = request.getSession();
         TopicoService service = (TopicoService) session.getAttribute("topicoService");
         
-        Usuario usuarioLogado = (Usuario) session.getAttribute("usuarioLogado");
-        List<Topico> topicos = service.recuperaTopicosDoUsuario(usuarioLogado);
+        List<Topico> topicos = service.recuperaTopicos();
         request.setAttribute("topicos", topicos);
         
         return "listaTopicos";

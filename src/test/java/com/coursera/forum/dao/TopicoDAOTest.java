@@ -53,15 +53,10 @@ public class TopicoDAOTest {
         Usuario usuario = new Usuario();
         usuario.setLogin("maria");
         
-        List<Topico> topicosDoUsuario = this.dao.recuperaTopicosDoUsuario(usuario);
-        
+        List<Topico> topicosDoUsuario = this.dao.recuperaTopicos();
         Assert.assertNotNull(topicosDoUsuario);
         Assert.assertFalse(topicosDoUsuario.isEmpty());
-        Assert.assertEquals(2, topicosDoUsuario.size());
-        
-        for (Topico topico : topicosDoUsuario) {
-            Assert.assertEquals("maria", topico.getUsuario().getLogin());
-        }
+        Assert.assertEquals(3, topicosDoUsuario.size());
     }
 
     private Topico criaTopico(String titulo, String conteudo) {

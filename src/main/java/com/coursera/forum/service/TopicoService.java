@@ -5,7 +5,6 @@ import java.util.List;
 
 import com.coursera.forum.dao.TopicoDAO;
 import com.coursera.forum.model.Topico;
-import com.coursera.forum.model.Usuario;
 
 public class TopicoService implements Serializable {
     private static final long serialVersionUID = 1L;
@@ -19,8 +18,8 @@ public class TopicoService implements Serializable {
         return this.topicoDAO.recuperaTopico(idTopico);
     }
 
-    public List<Topico> recuperaTopicosDoUsuario(Usuario usuario) {
-        return this.topicoDAO.recuperaTopicosDoUsuario(usuario);
+    public List<Topico> recuperaTopicos() {
+        return this.topicoDAO.recuperaTopicos();
     }
     
     public void insereTopico(Topico topico) {

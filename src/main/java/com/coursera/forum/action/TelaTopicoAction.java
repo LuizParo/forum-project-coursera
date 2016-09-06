@@ -11,7 +11,7 @@ import com.coursera.forum.model.Comentario;
 import com.coursera.forum.service.ComentarioService;
 import com.coursera.forum.service.TopicoService;
 
-public class TelaInsereTopicoAction implements Action, Serializable {
+public class TelaTopicoAction implements Action, Serializable {
     private static final long serialVersionUID = 1L;
 
     @Override
@@ -37,6 +37,6 @@ public class TelaInsereTopicoAction implements Action, Serializable {
             }
         }
         
-        return "insereTopico";
+        return "topico";
     }
 }

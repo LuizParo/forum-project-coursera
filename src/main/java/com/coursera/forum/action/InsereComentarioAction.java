@@ -29,6 +29,6 @@ public class InsereComentarioAction implements Action, Serializable {
         
         service.insereComentario(comentario);
         
-        return "redirect:?action=TelaInsereTopicoAction&topico=" + topico.getId() + "&exibicao=true";
+        return "redirect:?action=TelaTopicoAction&topico=" + topico.getId() + "&exibicao=true";
     }
 }
