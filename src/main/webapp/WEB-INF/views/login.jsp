@@ -21,7 +21,7 @@
 		<form action="${action}" method="post">
 			<input type="hidden" name="action" value="AutenticacaoAction" />
 			
-			<div class="group">
+			<div id="mensagem" class="group">
 				<p>${mensagem}</p>
 			</div>
 			
