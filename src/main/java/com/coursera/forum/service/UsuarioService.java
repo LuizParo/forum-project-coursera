@@ -1,6 +1,7 @@
 package com.coursera.forum.service;
 
 import java.io.Serializable;
+import java.util.List;
 
 import com.coursera.forum.dao.UsuarioDAO;
 import com.coursera.forum.model.Usuario;
@@ -24,5 +25,9 @@ public class UsuarioService implements Serializable {
     
     public void pontuaUsuario(Usuario usuario, int pontos) {
         this.usuarioDAO.adicionarPontos(usuario.getLogin(), pontos);
+    }
+
+    public List<Usuario> ranking() {
+        return this.usuarioDAO.ranking();
     }
 }

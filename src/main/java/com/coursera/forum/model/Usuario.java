@@ -9,7 +9,7 @@ public class Usuario implements Serializable {
     private String email;
     private String nome;
     private String senha;
-    private Integer pontos;
+    private int pontos;
 
     public String getLogin() {
         return login;
@@ -43,7 +43,7 @@ public class Usuario implements Serializable {
         this.senha = senha;
     }
 
-    public Integer getPontos() {
+    public int getPontos() {
         return pontos;
     }
 

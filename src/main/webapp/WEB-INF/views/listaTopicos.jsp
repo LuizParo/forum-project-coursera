@@ -33,7 +33,7 @@
 			<br/><br/>
 			<a href="${action}?action=TelaTopicoAction">Criar Tópico</a>
 			<br/><br/>
-			<a href="${action}">Exibir Ranking</a>
+			<a href="${action}?action=TelaRankingAction">Exibir Ranking</a>
 		</div>
 		<br/>
 		
