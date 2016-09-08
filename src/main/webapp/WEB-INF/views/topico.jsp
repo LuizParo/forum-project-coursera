@@ -32,9 +32,6 @@
 								<c:if test="${exibicao != null}">disabled</c:if> >${topico.conteudo}</textarea>
 					</td>
 				</tr>
-				<tr>
-					<td><a href="${action}?action=TelaListaTopicosAction">Voltar</a></td>
-				</tr>
 			</table>
 			
 			<c:if test="${exibicao == null}">
@@ -70,5 +67,10 @@
 				</div>
 			</form>
 		</c:if>
+		
+		<br/><br/>
+		<div>
+			<a href="${action}?action=TelaListaTopicosAction">Voltar</a>
+		</div>
 	</body>
 </html>

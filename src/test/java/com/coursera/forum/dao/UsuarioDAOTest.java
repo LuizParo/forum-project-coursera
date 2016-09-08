@@ -39,7 +39,7 @@ public class UsuarioDAOTest {
 
     @Test
     public void deveInserirNovoUsuario() throws SQLException, Exception {
-        Usuario usuario = this.criaUsuario("user", "User", 10);
+        Usuario usuario = this.criaUsuario("user", "User", 0);
         this.dao.inserir(usuario);
         
         ITable currentTable = this.getCurrentTable();
@@ -50,7 +50,7 @@ public class UsuarioDAOTest {
     
     @Test
     public void deveRecuperarUsuario() {
-        Usuario usuario = this.criaUsuario("user", "User", 10);
+        Usuario usuario = this.criaUsuario("user", "User", 0);
         this.dao.inserir(usuario);
         
         Usuario usuarioRecuperado = this.dao.recuperar(usuario.getLogin(), usuario.getSenha());
@@ -65,9 +65,9 @@ public class UsuarioDAOTest {
     
     @Test
     public void deveAtualizarPontosDoUsuario() throws SQLException, Exception {
-        Usuario usuario = this.criaUsuario("user", "User", 10);
+        Usuario usuario = this.criaUsuario("user", "User", 0);
         this.dao.inserir(usuario);
-        this.dao.adicionarPontos("user", 50);
+        this.dao.adicionarPontos("user", 10);
         
         ITable currentTable = this.getCurrentTable();
         ITable expectedTable = this.getModifiedTable(VERIFICA_UPDATE_XML_LOCATION);
@@ -77,7 +77,7 @@ public class UsuarioDAOTest {
     
     @Test
     public void deveRetornarRankingDeUsuarios() {
-        Usuario usuario = this.criaUsuario("user", "User", 70);
+        Usuario usuario = this.criaUsuario("user", "User", 0);
         this.dao.inserir(usuario);
         
         List<Usuario> ranking = this.dao.ranking();

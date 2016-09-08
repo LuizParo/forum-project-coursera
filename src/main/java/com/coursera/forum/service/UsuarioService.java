@@ -21,4 +21,8 @@ public class UsuarioService implements Serializable {
     public Usuario autenticaUsuario(String login, String senha) {
         return this.usuarioDAO.recuperar(login, senha);
     }
+    
+    public void pontuaUsuario(Usuario usuario, int pontos) {
+        this.usuarioDAO.adicionarPontos(usuario.getLogin(), pontos);
+    }
 }

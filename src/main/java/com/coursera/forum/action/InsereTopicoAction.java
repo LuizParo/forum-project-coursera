@@ -9,6 +9,7 @@ import javax.servlet.http.HttpSession;
 import com.coursera.forum.model.Topico;
 import com.coursera.forum.model.Usuario;
 import com.coursera.forum.service.TopicoService;
+import com.coursera.forum.service.UsuarioService;
 
 public class InsereTopicoAction implements Action, Serializable {
     private static final long serialVersionUID = 1L;
@@ -17,7 +18,7 @@ public class InsereTopicoAction implements Action, Serializable {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         TopicoService topicoService = (TopicoService) session.getAttribute("topicoService");
-        session.getAttribute("");
+        UsuarioService usuarioService = (UsuarioService) session.getAttribute("usuarioService");
         
         Topico topico = new Topico();
         topico.setTitulo(request.getParameter("txtTitulo"));
@@ -25,6 +26,7 @@ public class InsereTopicoAction implements Action, Serializable {
         topico.setUsuario((Usuario) session.getAttribute("usuarioLogado"));
         
         topicoService.insereTopico(topico);
+        usuarioService.pontuaUsuario((Usuario) session.getAttribute("usuarioLogado"), 10);
         return "redirect:?action=TelaListaTopicosAction";
     }
 }

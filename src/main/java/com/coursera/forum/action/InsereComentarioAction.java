@@ -10,6 +10,7 @@ import com.coursera.forum.model.Comentario;
 import com.coursera.forum.model.Topico;
 import com.coursera.forum.model.Usuario;
 import com.coursera.forum.service.ComentarioService;
+import com.coursera.forum.service.UsuarioService;
 
 public class InsereComentarioAction implements Action, Serializable {
     private static final long serialVersionUID = 1L;
@@ -18,6 +19,7 @@ public class InsereComentarioAction implements Action, Serializable {
     public String execute(HttpServletRequest request, HttpServletResponse response) {
         HttpSession session = request.getSession();
         ComentarioService service = (ComentarioService) session.getAttribute("comentarioService");
+        UsuarioService usuarioService = (UsuarioService) session.getAttribute("usuarioService");
         
         Topico topico = new Topico();
         topico.setId(Integer.parseInt(request.getParameter("topico")));
@@ -28,7 +30,7 @@ public class InsereComentarioAction implements Action, Serializable {
         comentario.setTopico(topico);
         
         service.insereComentario(comentario);
-        
+        usuarioService.pontuaUsuario((Usuario) session.getAttribute("usuarioLogado"), 3);
         return "redirect:?action=TelaTopicoAction&topico=" + topico.getId() + "&exibicao=true";
     }
 }

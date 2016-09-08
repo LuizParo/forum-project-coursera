@@ -1,5 +1,5 @@
 <dataset>
-	<usuario login="joao" nome="Joao Pedro" senha="joaopedro" email="joao@email.com" pontos="10" />
-	<usuario login="maria" nome="Maria Tereza" senha="mariatereza" email="mt@email.com" pontos="20" />
-	<usuario login="user" nome="User" senha="pass" email="user@email.com" pontos="10" />
+	<usuario login="joao" nome="Joao Pedro" senha="joaopedro" email="joao@email.com" pontos="16" />
+	<usuario login="maria" nome="Maria Tereza" senha="mariatereza" email="mt@email.com" pontos="26" />
+	<usuario login="user" nome="User" senha="pass" email="user@email.com" pontos="0" />
 </dataset>

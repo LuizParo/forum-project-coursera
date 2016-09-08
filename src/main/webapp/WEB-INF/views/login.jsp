@@ -26,20 +26,34 @@
 				<p>${mensagem}</p>
 			</div>
 			
-			<div class="group">
-				<label for="txtUsuario">Usuário:</label>
-				<input type="text" id="txtUsuario" name="txtUsuario" />
-			</div>
-			
-			<div class="group">
-				<label for="txtPassword">Password:</label>
-				<input type="password" id="txtPassword" name="txtPassword" />
-			</div>
-			
-			<div class="group">
-				<input type="submit" value="Autenticar" />
-				<input type="reset" value="Limpar" />
-			</div>
+			<table>
+				<tr>
+					<td>
+						<label for="txtUsuario">Usuário:</label>
+					</td>
+					<td>
+						<input type="text" id="txtUsuario" name="txtUsuario" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<label for="txtPassword">Password:</label>
+					</td>
+					<td>
+						<input type="password" id="txtPassword" name="txtPassword" />
+					</td>
+				</tr>
+				
+				<tr>
+					<td>
+						<input type="submit" value="Autenticar" />
+					</td>
+					<td>
+						<input type="reset" value="Limpar" />
+					</td>
+				</tr>
+			</table>
 			
 			<div class="group">
 				<a href="${action}?action=TelaCadastroUsuarioAction">Cadastrar Usuário</a>

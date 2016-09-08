@@ -43,7 +43,8 @@ public class ComentarioDAOImpl implements ComentarioDAO, Serializable {
         sql.append("FROM comentario c ");
         sql.append("INNER JOIN usuario u ON c.login = u.login ");
         sql.append("INNER JOIN topico t ON t.id_topico = c.id_topico ");
-        sql.append("WHERE c.id_topico = ?");
+        sql.append("WHERE c.id_topico = ? ");
+        sql.append("ORDER BY c.id_comentario DESC");
         
         List<Comentario> comentarios = new ArrayList<>();
         
